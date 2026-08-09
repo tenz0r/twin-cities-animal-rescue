@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twin Cities Animal Rescue - Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="images/rescue-logo_c.png" alt="Twin Cities Animal Rescue logo, a paw print inside a heart outline">
+    <h1>Get In Touch</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section aria-labelledby="service-area-heading">
+      <h2 id="service-area-heading">Service Area &amp; Office Hours</h2>
+      <p>Placeholder text: Twin Cities Animal Rescue serves Minneapolis, Saint Paul, and surrounding suburbs.</p>
+      <p>Office Hours: Tuesday through Saturday, 10:00 AM to 5:00 PM. Closed Sunday and Monday.</p>
+      <p>Location: 4521 Riverview Avenue, Minneapolis, MN 55407</p>
+    </section>
+
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">Volunteer &amp; Foster Interest Form</h2>
+      <p>Fill out the form below and a member of our team will follow up within three business days.</p>
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Your Information</legend>
+
+          <p>
+            <label for="full-name">Full Name</label><br>
+            <input type="text" id="full-name" name="full-name" required minlength="2">
+          </p>
+
+          <p>
+            <label for="email">Email Address</label><br>
+            <input type="email" id="email" name="email" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Interest Details</legend>
+
+          <p>
+            <label for="interest-type">Interest Type</label><br>
+            <select id="interest-type" name="interest-type" required>
+              <option value="">-- Select an option --</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="foster">Foster</option>
+              <option value="adoption-info">Adoption Information</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="availability">Availability</label><br>
+            <input type="text" id="availability" name="availability" placeholder="e.g. Weekday evenings, weekends" required>
+          </p>
+
+          <p>
+            <label for="pet-experience">Experience With Pets</label><br>
+            <select id="pet-experience" name="pet-experience" required>
+              <option value="">-- Select an option --</option>
+              <option value="none">No prior experience</option>
+              <option value="some">Some experience</option>
+              <option value="extensive">Extensive experience</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Tell us more about your interest"></textarea>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Submit Interest Form</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Twin Cities Animal Rescue. Serving the Twin Cities metro area.</p>
+  </footer>
+</body>
+</html>
