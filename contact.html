@@ -60,27 +60,30 @@
 
           <p>
             <label for="interest-type">Interest Type</label><br>
-            <select id="interest-type" name="interest-type" required>
+            <select id="interest-type" name="interest-type" required aria-describedby="interest-type-error">
               <option value="">-- Select an option --</option>
               <option value="volunteer">Volunteer</option>
               <option value="foster">Foster</option>
               <option value="adoption-info">Adoption Information</option>
             </select>
+            <span class="field-error" id="interest-type-error" role="alert"></span>
           </p>
 
           <p>
             <label for="availability">Availability</label><br>
-            <input type="text" id="availability" name="availability" placeholder="e.g. Weekday evenings, weekends" required>
+            <input type="text" id="availability" name="availability" placeholder="e.g. Weekday evenings, weekends" required aria-describedby="availability-error">
+            <span class="field-error" id="availability-error" role="alert"></span>
           </p>
 
           <p>
             <label for="pet-experience">Experience With Pets</label><br>
-            <select id="pet-experience" name="pet-experience" required>
+            <select id="pet-experience" name="pet-experience" required aria-describedby="pet-experience-error">
               <option value="">-- Select an option --</option>
               <option value="none">No prior experience</option>
               <option value="some">Some experience</option>
               <option value="extensive">Extensive experience</option>
             </select>
+            <span class="field-error" id="pet-experience-error" role="alert"></span>
           </p>
 
           <p>
