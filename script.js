@@ -21,7 +21,8 @@ const ANIMALS = [
     size: "small",
     age: "adult",
     summary: "Quiet tabby who has been with us the longest. Does best in a calm home without dogs.",
-    image: "images/rescue-pet-spotlight_c.png"
+    image: "images/rescue-pet-spotlight_c.png",
+    alt: "Biscuit, an adult tabby cat with green eyes, sitting and looking at the camera"
   },
   {
     id: "maple",
@@ -29,8 +30,9 @@ const ANIMALS = [
     type: "dog",
     size: "medium",
     age: "adult",
-    summary: "Friendly brown and white mix. Already house trained and good on a leash.",
-    image: "images/rescue-pet_c.png"
+    summary: "Friendly golden mix who already knows how to walk on a leash. Good with older children.",
+    image: "images/rescue-volunteer_c.png",
+    alt: "Maple, an adult golden dog being petted by a volunteer outdoors"
   },
   {
     id: "cooper",
@@ -39,25 +41,8 @@ const ANIMALS = [
     size: "large",
     age: "young",
     summary: "Energetic and still learning his manners. Needs a family with a fenced yard.",
-    image: "images/rescue-feature-large_c.png"
-  },
-  {
-    id: "pepper",
-    name: "Pepper",
-    type: "cat",
-    size: "small",
-    age: "young",
-    summary: "Playful kitten who was found with her littermates. Can go home with another cat.",
-    image: "images/rescue-feature-small_c.png"
-  },
-  {
-    id: "juniper",
-    name: "Juniper",
-    type: "small-animal",
-    size: "small",
-    age: "adult",
-    summary: "Gentle rabbit who is litter trained and enjoys being around people.",
-    image: "images/rescue-volunteer_c.png"
+    image: "images/rescue-feature-large_c.png",
+    alt: "Cooper, a large young black and brown dog walking outside on a sunny path"
   },
   {
     id: "shadow",
@@ -65,8 +50,19 @@ const ANIMALS = [
     type: "dog",
     size: "medium",
     age: "senior",
-    summary: "Calm senior dog looking for a quiet home. Walks slow and sleeps a lot.",
-    image: "images/rescue-feature-large_c.png"
+    summary: "Calm senior dog looking for a quiet home. Walks slow and sleeps most of the day.",
+    image: "images/rescue-feature-small_c.png",
+    alt: "Shadow, a senior black and brown dog standing calmly next to his handler"
+  },
+  {
+    id: "juniper",
+    name: "Juniper",
+    type: "small-animal",
+    size: "small",
+    age: "adult",
+    summary: "Gentle guinea pig who is used to being handled and enjoys company.",
+    image: "images/rescue-pet_c.png",
+    alt: "Juniper, an adult ginger and white guinea pig facing the camera"
   }
 ];
 
@@ -176,8 +172,7 @@ function buildAnimalCard(animal) {
 
   const picture = document.createElement("img");
   picture.src = animal.image;
-  picture.alt = animal.name + ", a " + animal.age + " " + animal.type.replace("-", " ") +
-    " available for adoption at Twin Cities Animal Rescue";
+  picture.alt = animal.alt;
 
   const title = document.createElement("h3");
   title.textContent = animal.name;
