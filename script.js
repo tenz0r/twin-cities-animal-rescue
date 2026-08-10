@@ -385,6 +385,40 @@ function validateEmail() {
   return true;
 }
 
+// Check 3: the fields that the HTML marks as required still have to be filled.
+// The form carries novalidate so my messages can replace the browser bubbles,
+// which means this function has to cover what the browser used to enforce.
+const REQUIRED_FIELDS = [
+  { id: "interest-type", message: "Please choose what you are interested in." },
+  { id: "availability", message: "Please tell us when you are available." },
+  { id: "pet-experience", message: "Please choose your experience with pets." }
+];
+
+function validateRequiredField(field) {
+  const element = document.getElementById(field.id);
+  if (!element) {
+    return true;
+  }
+
+  if (element.value.trim() === "") {
+    showFieldError(field.id, field.message);
+    return false;
+  }
+
+  clearFieldError(field.id);
+  return true;
+}
+
+function validateAllRequiredFields() {
+  let allValid = true;
+  REQUIRED_FIELDS.forEach(function (field) {
+    if (!validateRequiredField(field)) {
+      allValid = false;
+    }
+  });
+  return allValid;
+}
+
 function showFormSummary(message, isError) {
   const summary = document.getElementById("form-summary");
   if (!summary) {
@@ -395,12 +429,13 @@ function showFormSummary(message, isError) {
 }
 
 function handleFormSubmit(event) {
-  // Both checks run every time so the user sees all the problems at once
-  // instead of fixing one and finding another.
+  // Every check runs on each submit, so the user sees all the problems at
+  // once instead of fixing one and then finding another.
   const nameOk = validateName();
   const emailOk = validateEmail();
+  const requiredOk = validateAllRequiredFields();
 
-  if (!nameOk || !emailOk) {
+  if (!nameOk || !emailOk || !requiredOk) {
     event.preventDefault();
     showFormSummary("Please fix the highlighted fields before sending the form.", true);
     return;
@@ -485,6 +520,18 @@ function startContactForm() {
   if (emailField) {
     emailField.addEventListener("blur", validateEmail);
   }
+
+  REQUIRED_FIELDS.forEach(function (field) {
+    const element = document.getElementById(field.id);
+    if (!element) {
+      return;
+    }
+    const recheck = function () {
+      validateRequiredField(field);
+    };
+    element.addEventListener("blur", recheck);
+    element.addEventListener("change", recheck);
+  });
 }
 
 /* ---------- Start ---------- */
