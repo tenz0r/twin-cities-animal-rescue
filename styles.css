@@ -285,6 +285,145 @@ footer {
 }
 
 /* =========================================================
+   Interactive animal browser (Touchstone 4)
+   ========================================================= */
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.filter-button {
+  align-self: stretch;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button:focus {
+  background-color: var(--color-bg);
+}
+
+.filter-button.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.animal-count {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.animal-list {
+  list-style: none;
+  margin: 0 0 var(--spacing-md) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.animal-card {
+  background-color: var(--color-bg);
+  border: 1px solid #e0d6c9;
+  border-radius: 6px;
+  padding: var(--spacing-sm);
+}
+
+.animal-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0.5rem 0 0.15rem 0;
+  font-size: 1.1rem;
+}
+
+.animal-meta {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  text-transform: capitalize;
+  margin-bottom: 0.4rem;
+}
+
+.save-button {
+  align-self: flex-start;
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button.is-saved {
+  background-color: var(--color-primary);
+}
+
+.saved-list {
+  background-color: #ffffff;
+  border-left: 4px solid var(--color-primary);
+  padding: var(--spacing-sm);
+  border-radius: 4px;
+}
+
+.saved-items {
+  margin: 0.4rem 0 0 1.1rem;
+  padding: 0;
+}
+
+/* ---------- Form validation feedback ---------- */
+.field-error {
+  display: block;
+  color: #9B1B1B;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+  min-height: 1rem;
+}
+
+input.has-error,
+select.has-error,
+textarea.has-error {
+  border: 2px solid #9B1B1B;
+  background-color: #FDF3F3;
+}
+
+.form-summary {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.form-summary.is-error {
+  color: #9B1B1B;
+}
+
+.form-summary.is-success {
+  color: #1B6B3A;
+}
+
+.prefill-note,
+.form-saved-animals {
+  background-color: #ffffff;
+  border-left: 4px solid var(--color-accent);
+  padding: 0.6rem var(--spacing-sm);
+  border-radius: 4px;
+  font-size: 0.92rem;
+}
+
+.prefill-note:empty,
+.form-saved-animals:empty {
+  display: none;
+}
+
+/* =========================================================
    Media query: larger screens (tablet / desktop, 768px+)
    ========================================================= */
 @media (min-width: 768px) {
@@ -337,5 +476,26 @@ footer {
 
   fieldset {
     flex: 1 1 calc(50% - var(--spacing-md));
+  }
+
+  .filter-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .filter-button {
+    align-self: auto;
+    flex: 0 1 auto;
+  }
+
+  .animal-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .animal-card {
+    flex: 1 1 calc(50% - var(--spacing-sm));
+    display: flex;
+    flex-direction: column;
   }
 }
